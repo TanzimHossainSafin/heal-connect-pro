@@ -5,6 +5,11 @@ export const hashedPassword=async(password)=>{
    const hashedPassword=await bcrypt.hash(password, await bcrypt.genSalt(10));
    return hashedPassword
 }
+export const checkHashPassword=async(password,hashedPassword)=>{
+    const result=await bcrypt.compare(password,hashedPassword);
+    return result;
+    
+}
 export const createJwt=(user)=>{
     const token=jwt.sign({
         id:user.id,
