@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Shield, Phone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
+import Logout from "./ui/logout";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -40,10 +40,18 @@ export const Header = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50"
-            onClick={handleSignIn}>
-              Sign In
-            </Button>
+          {!localStorage.getItem("token") ? (
+  <Button
+    variant="outline"
+    className="border-blue-600 text-blue-600 hover:bg-blue-50"
+    onClick={handleSignIn}
+  >
+    Sign In
+  </Button>
+) : (
+  <Logout />
+)}
+          
             <Button className="bg-blue-600 hover:bg-blue-700">
               Book Appointment
             </Button>

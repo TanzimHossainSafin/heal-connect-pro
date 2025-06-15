@@ -3,6 +3,7 @@ import { Button } from "./button";
 import { Label } from "./label";
 import { useState } from "react";
 import axios from "axios";
+
 export default function Signup() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -40,7 +41,9 @@ export default function Signup() {
     };
 
     return (
+        
         <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+            
             <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
                 <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">Sign Up</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
