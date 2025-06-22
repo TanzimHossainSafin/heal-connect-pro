@@ -1,6 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Video, Heart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const HowItWorks = () => {
   const steps = [
@@ -23,6 +24,18 @@ export const HowItWorks = () => {
       description: "Receive prescriptions, treatment plans, and follow-up care recommendations instantly."
     }
   ];
+  const navigate = useNavigate();
+  const handelSubmit = (type: string) => {
+    if(type === "Book Appointment") {       
+      navigate("/appointment"); 
+    }
+    if(type === "Video Consultation") {
+      navigate("/video-consultation"); 
+    }
+    if(type === "Get Treatment") {
+      navigate("/get-treatment"); 
+    }
+  }
 
   return (
     <section id="how-it-works" className="py-20 bg-white">
@@ -49,7 +62,11 @@ export const HowItWorks = () => {
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             return (
-              <Card key={index} className="relative bg-white border-2 border-blue-100 hover:border-blue-300 transition-colors duration-300">
+              <Card
+                 onClick={() => handelSubmit(step.title)}
+                 key={index}
+                 className="relative bg-white border-2 border-blue-100 hover:border-blue-300 transition-colors duration-300 cursor-pointer"
+               >
                 <CardContent className="p-8 text-center">
                   <div className="relative mb-6">
                     <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">

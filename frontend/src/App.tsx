@@ -7,6 +7,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Signin from "./components/ui/signin";
 import Signup from "./components/ui/signup";
+import Appointment from "./components/ui/appointment";
+import VideoConsultation from "./components/ui/video-consultation";
+import GetTreatment from "./components/ui/get-treatment";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -21,6 +24,9 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route path="/video-consultation" element={<VideoConsultation />} />
+          <Route path="/get-treatment" element={<GetTreatment />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

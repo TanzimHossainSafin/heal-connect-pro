@@ -2,8 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Clock, Heart } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 export const Hero = () => {
+  const navigate = useNavigate();
+  const handelsubmit = () => {  
+    navigate("/appointment");
+  }
   return (
     <section className="bg-gradient-to-br from-blue-50 to-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,7 +29,7 @@ export const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg">
+              <Button onClick={handelsubmit}size="lg" className="bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg">
                 Start Consultation
               </Button>
               <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg">
