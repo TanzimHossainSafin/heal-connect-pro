@@ -1,4 +1,4 @@
-import {createJwt,checkHashPassword,hashedPassword} from "../utils/auth";
+import {createJwt,checkHashPassword} from "../utils/auth";
 import prisma from '../db';
 const userLogin=async(req,res)=>{
     const {email,password}=req.body;
